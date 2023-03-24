@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { Switch, Route} from "react-router-dom";
 import Provider from "../components/Provider";
 import Requests from "../components/Requests";
-import Accounts from "../components/Account";
+import Accounts from "../components/Accounts";
 
 const Dashboard = () => {
     return ( 

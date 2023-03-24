@@ -11,7 +11,7 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (history.location.state){
-            setEmail(history.location.state.email);
+            setEmail(history.location.state.data.email);
         } else {
             return
         }

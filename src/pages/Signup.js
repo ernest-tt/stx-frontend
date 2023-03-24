@@ -13,11 +13,14 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         authService.signUp({fullName, email, password})
-            .then((res) => history.push({path: '/', state: {res}}))
+            .then((res) => {
+                console.log('in response')
+                history.push({pathname: "/",  state: {data: res.data}})
+            })
             .catch((err) => {
-            console.error('error', err.response.data)
-            toast.error(err.response.data)
-        })
+                console.error('error', err.response)
+                toast.error(err.response)
+            })
     }
 
     return ( 
