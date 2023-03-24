@@ -2,6 +2,7 @@ import LoginPage from "./pages/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignUp from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

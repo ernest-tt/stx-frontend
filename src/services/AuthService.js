@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const signUp = (body) => {
-    return axios.post('http://localhost:5000/trader/register', {...body})
+    return axios.post('http://localhost:5000/trader/register', {...body}, {withCredentials: true})
         .then((res) => {
             return res
         })
@@ -11,7 +11,7 @@ const signUp = (body) => {
 }
 
 const login = (body) => {
-    return axios.post('http://localhost:5000/trader/login', {...body})
+    return axios.post('http://localhost:5000/trader/login', {...body}, {withCredentials: true})
         .then((res) => {
             return res
         })

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+
 /* base styles */
 *{
   list-style: none;
@@ -87,4 +88,41 @@
   flex-direction: column;
   margin: 0 auto;
   max-width: 1200px;
+}
+
+.providers {
+  padding: 0.6rem;
+}
+
+.provider-filter select {
+  padding: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+
+.offers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr));
+  gap: 1rem;
+}
+
+.offer-card, .card-content {
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.4rem;
+}
+
+.purchase-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 100%; */
+  background-color: #b7b7b7;
+}
+
+.purchase-form form {
+  margin: 0 auto;
+  z-index: 5;
 }
