@@ -24,7 +24,7 @@ const Navbar = () => {
             <header className="navbar">
                 <span className="title">FX Home</span>
                 <ul className="links">
-                    <li><Link to="/dashboard/providers">Providers</Link></li>
+                    <li><Link to="/dashboard">Providers</Link></li>
                     <li><Link to="/dashboard/requests">Requests</Link></li>
                     <li><Link to="/dashboard/accounts">Accounts</Link></li>                  
                     <li onClick={handleLogout}>Logout</li>

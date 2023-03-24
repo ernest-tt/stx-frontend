@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import { Switch, Route} from "react-router-dom";
 import Provider from "../components/Provider";
 import Requests from "../components/Requests";
+import Accounts from "../components/Account";
 
 const Dashboard = () => {
     return ( 
@@ -10,11 +11,14 @@ const Dashboard = () => {
             <Navbar />
             <div>
                 <Switch>
-                    <Route path="/dashboard/providers">
+                    <Route exact path="/dashboard">
                         <Provider />
                     </Route>
                     <Route path="/dashboard/requests">
-                        <Requests />
+                        <Requests path="/dashboard/accounts"/>
+                    </Route>
+                    <Route>
+                        <Accounts />
                     </Route>
                 </Switch>
             </div>
