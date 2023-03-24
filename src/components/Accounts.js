@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import accountService from "../services/AccountsService";
+import BankForm from "./BankForm";
 
 const Accounts = () => {
-    const [accountNumber, SetAccountNumber] = useState()
     const [banks, setBanks] = useState()
-    const [bankId, setBankId] = useState()
     const [balanceInfo, setBalanceInfo] = useState()
     const [accounts, setAccounts] = useState()
     const [show, setShow] = useState(false);
@@ -47,49 +45,27 @@ const Accounts = () => {
 
     return ( 
         <div className="accounts">
-            <div>
+            <div className="details">
                 {balanceInfo && balanceInfo.map((info) => (
                     <div key={info.trader_balance_id}>
-                        <h3>{info.symbol}</h3>
-                        <p>{info.amount}</p>
+                        <h3>Platform Balance : <strong>{info.symbol} {info.amount.slice(1)}</strong></h3>
                     </div>
                 ))}
+                <button className="cta" onClick={handleShow}>Add Bank Details</button>
             </div>
-            <div>
+            <div className="banks">
                 <h2>Your Bank Accounts</h2>
-                { accounts && accounts.map((account) => (
-                    <div key={account.account_id}>
-                        <p>{account.bank_name}</p>
-                        <p>{account.account_number}</p>
-                    </div>
-                ))}
+                <div className="banks-container">
+                    { accounts && accounts.map((account) => (
+                        <div className="bank-stat" key={account.account_id}>
+                            <p><strong>{account.bank_name}</strong></p>
+                            <p>Acc No: <strong>{account.account_number}</strong></p>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <Button variant="primary" onClick={handleShow}>Add Bank Details</Button>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                <Modal.Title>Buy FX</Modal.Title>
-                </Modal.Header>
-                    <Modal.Body>
-                    <form className="buyForm">
-                        <select value={bankId} onChange={(e) => setBankId(e.target.value)}>
-                            <option value=''>Select your bank</option>
-                            {banks && banks.map((bank) => (
-                                <option key={bank.bank_id} value={bank.bank_id}>{bank.bank_name}</option>
-                            ))}
-                        </select>
-                        <label>Account Number</label>
-                        <input value={accountNumber} onChange={(e) => SetAccountNumber(e.target.value)}type="number"/>
-                    </form>
-                    </Modal.Body>
-                <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
-                <Button variant="primary">
-                    Save
-                </Button>
-                </Modal.Footer>
-            </Modal>
+            <ToastContainer />
+            {show && <BankForm show={show} banks={banks} handleClose={handleClose}/>}
         </div>
      );
 }

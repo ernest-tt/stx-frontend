@@ -6,31 +6,6 @@ import RequestList from "./RequestLists";
 
 const Requests = () => {
     const [requests, setRequests] = useState(null)
-    const [offers, setOffers] = useState(null)
-    const [requestOffer, setRequestOffer] = useState(null)
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const showBuyForm = (body) => {
-        handleShow()
-        console.log(body)
-        setRequestOffer(body)
-    }
-
-    // const placeOrder = (body) => {
-    //     const { offer_id, provider_id } = requestOffer;
-    //     purchaseService.makePurchase({...body, offer_id, provider_id})
-    //         .then(() => {
-    //             toast.success('Order placed')
-    //         })
-    //         .catch((err) => {
-    //             console.error(err)
-    //             toast.error(err.response.data)
-    //         })
-    //     handleClose()
-    //     // console.log({...body, offer_id, provider_id})
-    // }
 
     useEffect(() => {
         traderService.getAllRequests()
@@ -45,10 +20,9 @@ const Requests = () => {
 
     return ( 
         <div className="providers">
-            <h1>Providers</h1>
+            <h3>You can view all your requests here</h3>
             <ToastContainer />
             <RequestList requests={requests}/>
-            {/* <OrderForm show={show} requestOffer={requestOffer} placeOrder={placeOrder} handleClose={handleClose}/> */}
         </div>
      );
 }

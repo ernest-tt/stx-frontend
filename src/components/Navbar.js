@@ -19,15 +19,15 @@ const Navbar = () => {
     }
 
     return ( 
-        <div className="links">
+        <div className="navbar-container">
             <ToastContainer />
             <header className="navbar">
                 <span className="title">FX Home</span>
-                <ul className="links">
-                    <li><Link to="/dashboard">Buy FX</Link></li>
-                    <li><Link to="/dashboard/requests">View Requests</Link></li>
-                    <li><Link to="/dashboard/accounts">Accounts</Link></li>                  
-                    <li onClick={handleLogout}>Logout</li>
+                <ul className="navs">
+                    <li><Link to="/dashboard" className="nav-link">Buy FX</Link></li>
+                    <li><Link to="/dashboard/requests" className="nav-link">View Requests</Link></li>
+                    <li><Link to="/dashboard/accounts" className="nav-link">Accounts</Link></li>                  
+                    <li className="nav-link" onClick={handleLogout}>Logout</li>
                 </ul>
             </header>
         </div>

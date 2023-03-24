@@ -63,10 +63,10 @@ const Provider = () => {
 
     return ( 
         <div className="providers">
-            <h1>Providers</h1>
+            <h3>Click on a provider to buy</h3>
             <ToastContainer />
             <OfferList providers={providers} showBuyForm={showBuyForm} offers={offers} />
-            <OrderForm show={show} requestOffer={requestOffer} placeOrder={placeOrder} handleClose={handleClose}/>
+            {show && <OrderForm show={show} requestOffer={requestOffer} placeOrder={placeOrder} handleClose={handleClose}/>}
         </div>
      );
 }

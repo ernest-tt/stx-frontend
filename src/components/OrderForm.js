@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
 import accountService from "../services/AccountsService";
 
 const OrderForm = ({show, handleClose, requestOffer, placeOrder}) => {
@@ -18,16 +15,13 @@ const OrderForm = ({show, handleClose, requestOffer, placeOrder}) => {
 
     return ( 
         <>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                <Modal.Title>Buy FX</Modal.Title>
-                </Modal.Header>
-                    <Modal.Body>
+            <div className="modal" show={show} onHide={handleClose}>
                     <form className="buyForm">
-                        <div>
-                            <h3>{requestOffer && requestOffer.name}</h3>
-                            <p>{requestOffer && requestOffer.selling_price}</p>
-                            <p>{requestOffer && requestOffer.symbol}</p>
+                        <h2 className="title">ORDER FROM</h2>
+                        <div className="stats">
+                            <h3>Provider: {requestOffer && requestOffer.name}</h3>
+                            <p>Offer Price: <strong>{requestOffer && requestOffer.selling_price.slice(1)}</strong></p>
+                            <p>Currency: <strong>{requestOffer && requestOffer.symbol}</strong></p>
                         </div>
                         <label>Amount</label>
                         <input value={amount} onChange={(e) => setAmount(e.target.value)}type="number"/>
@@ -37,19 +31,12 @@ const OrderForm = ({show, handleClose, requestOffer, placeOrder}) => {
                                 <option key={account.account_id} value={account.account_id}>{account.bank_name}</option>
                             ))}
                         </select>
+                        <button className="cta" onClick={() => placeOrder({amount, accountId})}>
+                            Buy
+                        </button>
+                        <button onClick={handleClose}>Cancel</button>
                     </form>
-                    </Modal.Body>
-                <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
-                <Button variant="primary" onClick={() => placeOrder({
-                    amount, accountId
-                })}>
-                    Buy
-                </Button>
-                </Modal.Footer>
-            </Modal>
+            </div>
         </>
      );
 }
