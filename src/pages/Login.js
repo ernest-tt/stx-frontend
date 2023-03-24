@@ -10,7 +10,7 @@ const LoginPage = () => {
     const history = useHistory();
 
     useEffect(() => {
-        if (history.location.state){
+        if (history.location.state && history.location.state.data){
             setEmail(history.location.state.data.email);
         } else {
             return
@@ -20,7 +20,11 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         authService.login({email, password})
-            .then(() => history.push('/dashboard'))
+            .then(() => {
+                if(authService.isAuthenticated()) {
+                    history.push('/dashboard')
+                }
+            })
             .catch((err)  => {
                 console.error(err)
                 if (err.response.status === 401){

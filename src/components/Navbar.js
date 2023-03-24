@@ -1,15 +1,15 @@
 import React from "react";
 import { useHistory, Link } from 'react-router-dom'
-import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import authService from "../services/AuthService";
 
 const Navbar = () => {
     const history = useHistory()
 
     const handleLogout = () => {
-        axios.delete('http://localhost:5000/logout', {withCredentials: true})
-            .then((res) => {
+        authService.logout()
+            .then(() => {
                 history.push('/')
             })
             .catch((err) => {

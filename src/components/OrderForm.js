@@ -28,13 +28,15 @@ const OrderForm = ({show, handleClose, requestOffer, placeOrder}) => {
                         <select value={accountId} onChange={(e) => setAccountId(e.target.value)}>
                             <option value=''>Select your bank</option>
                             {accounts && accounts.map((account) => (
-                                <option key={account.account_id} value={account.account_id}>{account.bank_name}</option>
+                                <option key={account.account_id} value={account.account_id}>
+                                    {account.bank_name} -- {account.account_number}
+                                </option>
                             ))}
                         </select>
-                        <button className="cta" onClick={() => placeOrder({amount, accountId})}>
+                        <button type="button" className="cta" onClick={() => placeOrder({amount, accountId})}>
                             Buy
                         </button>
-                        <button onClick={handleClose}>Cancel</button>
+                        <button type="button" onClick={handleClose}>Cancel</button>
                     </form>
             </div>
         </>

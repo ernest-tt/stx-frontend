@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import accountService from "../services/AccountsService";
+import { ToastContainer, toast } from 'react-toastify';
 
 const BankForm = ({show, handleClose, banks}) => {
     const [bankId, setBankId] = useState()
@@ -7,10 +8,20 @@ const BankForm = ({show, handleClose, banks}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        accountService.addBankDetails({bankId, accountNumber})
+        .then(() => {
+            handleClose()
+            window.location.reload()
+        })
+        .catch((err) => {
+            console.error(err)
+            toast.error('Failed to save bank details')
+        })
     }
 
     return ( 
         <> 
+            <ToastContainer />
             <div clasName="modal" show={show} onHide={handleClose}>
                 <form className="buyForm" onSubmit={handleSubmit}>
                     <h2 className="title">BANK DETAILS</h2>

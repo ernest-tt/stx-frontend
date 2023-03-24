@@ -30,11 +30,22 @@ const getUserBalanceInfo = () => {
     })    
 }
 
+const addBankDetails = (body) => {
+    return axios.post('http://localhost:5000/accounts/add', {...body}, {withCredentials: true})
+        .then((res) => {
+            return res
+        })
+        .catch((err) => {
+            throw err
+        })   
+}
+
 
 const accountService = {
     getAccounts,
     getAvailableBanks,
-    getUserBalanceInfo
+    getUserBalanceInfo,
+    addBankDetails
 }
 
 export default accountService
