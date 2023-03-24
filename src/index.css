@@ -61,11 +61,12 @@
   color: white;
 }
 
-.navbar-container {
+.links {
   width: 100%;
 }
 
 .navbar {
+  text-decoration: none;
   padding: 0.8rem 0.6rem;
   width: 100%;
   background-color: #066eb42f;
