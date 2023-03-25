@@ -38,7 +38,9 @@ const Accounts = () => {
             .catch((err) => {
                 console.error(err)
                 toast.error(err.response.data)
-            })       
+            }) 
+          
+            
     }, [])
 
     return ( 
@@ -53,6 +55,7 @@ const Accounts = () => {
             </div>
             <div className="banks">
                 <h2>Your Bank Accounts</h2>
+                {(accounts && accounts.length === 0) && <span className="danger"><strong>No Bank Accounts found</strong></span>}
                 <div className="banks-container">
                     { accounts && accounts.map((account) => (
                         <div className="bank-stat" key={account.account_id}>

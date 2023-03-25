@@ -187,7 +187,7 @@ button:hover, select:hover {
   background-color: white;
 }
 
-.modal, .bank-form {
+.modal {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   background-color: #ffffffe2;
@@ -262,11 +262,11 @@ button:hover, select:hover {
   background-color: white;
 }
 
-.fulfilled strong {
+.fulfilled strong, .success {
   color: #035084;
 }
 
-.cancelled strong {
+.cancelled strong, .danger strong {
   color: #f52952
 }
 

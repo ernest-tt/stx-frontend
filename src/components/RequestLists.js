@@ -17,7 +17,7 @@ const RequestList = ({requests}) => {
                 </div>
             </div>
             <div className="requests">
-                {!requests && <h3>No requests found</h3>}
+                {(requests && requests.length === 0) && <span className="danger"><strong>No requests found</strong></span>}
                 {requests && requests.filter((request) => request.name.includes(requestFilter))
                     .map((request) => (
                         <Card className="card" key={request.request_id}>
