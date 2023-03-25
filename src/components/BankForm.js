@@ -8,15 +8,19 @@ const BankForm = ({show, handleClose, banks}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        accountService.addBankDetails({bankId, accountNumber})
-        .then(() => {
-            handleClose()
-            window.location.reload()
-        })
-        .catch((err) => {
-            console.error(err)
-            toast.error('Failed to save bank details')
-        })
+        if (!bankId || !accountNumber) {
+            toast.error("All fields are required")
+        } else {
+            accountService.addBankDetails({bankId, accountNumber})
+            .then(() => {
+                handleClose()
+                window.location.reload()
+            })
+            .catch((err) => {
+                console.error(err)
+                toast.error('Failed to save bank details')
+            })
+        }
     }
 
     return ( 

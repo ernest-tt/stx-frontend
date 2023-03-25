@@ -40,7 +40,7 @@ const OrderForm = ({show, handleClose, requestOffer, placeOrder}) => {
                         </div>
                         <label>Amount</label>
                         <input value={amount} onChange={(e) => setAmount(e.target.value)} type="number" 
-                            min={balance && parseFloat(balance.amount.slice(1).replaceAll(',',''))} required/>
+                            required/>
                         <select value={accountId} onChange={(e) => setAccountId(e.target.value)} required>
                             <option value=''>Select your bank</option>
                             {accounts && accounts.map((account) => (
@@ -49,9 +49,15 @@ const OrderForm = ({show, handleClose, requestOffer, placeOrder}) => {
                                 </option>
                             ))}
                         </select>
-                        <button type="button" className="cta" onClick={() => placeOrder({amount, accountId})}>
-                            Buy
-                        </button>
+                        <button type="button" className="cta" onClick={() => {
+                            if (parseFloat(amount) > parseFloat(balance.amount.slice(1).replaceAll(',',''))) {
+                                toast.error("Not enough balance")
+                            } else if (!accountId) {
+                                toast.error("All fields required")
+                            } else {
+                                placeOrder({amount, accountId})
+                            }
+                        }}>Buy</button>
                         <button type="button" onClick={handleClose}>Cancel</button>
                     </form>
             </div>
