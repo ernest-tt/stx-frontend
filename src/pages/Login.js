@@ -21,7 +21,6 @@ const LoginPage = () => {
         e.preventDefault()
         authService.login({email, password})
             .then((res) => {
-                console.log(res)
                 if(res) {
                     history.push('/dashboard/')
                 }

@@ -23,7 +23,7 @@ const BankForm = ({show, handleClose, banks}) => {
         <> 
             <ToastContainer />
             <div className="bank-form">
-                <div clasName="modal" show={show} onHide={handleClose}>
+                <div clasName="modal">
                     <form className="buyForm" onSubmit={handleSubmit}>
                         <h2 className="title">BANK DETAILS</h2>
                         <select value={bankId} onChange={(e) => setBankId(e.target.value)}>

@@ -16,7 +16,6 @@ const Provider = () => {
 
     const showBuyForm = (body) => {
         handleShow()
-        console.log(body)
         setRequestOffer(body)
     }
 
