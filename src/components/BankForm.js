@@ -18,7 +18,7 @@ const BankForm = ({show, handleClose, banks}) => {
             })
             .catch((err) => {
                 console.error(err)
-                toast.error('Failed to save bank details')
+                toast.error(err.response.data)
             })
         }
     }
