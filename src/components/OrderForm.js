@@ -4,9 +4,9 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const OrderForm = ({show, handleClose, requestOffer, placeOrder}) => {
     const [accounts, setAccounts] = useState([])
-    const [amount, setAmount] = useState(null);
-    const [accountId, setAccountId] = useState(null)
-    const [balance, setBalance] = useState()
+    const [amount, setAmount] = useState('');
+    const [accountId, setAccountId] = useState('')
+    const [balance, setBalance] = useState('')
 
     useEffect(() => {
         accountService.getAccounts()

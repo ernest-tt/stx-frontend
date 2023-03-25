@@ -36,22 +36,25 @@ const LoginPage = () => {
     }
 
     return (
-        <div className="login">
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Email Address</label>
-                <input type="email" required 
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)}/>
-                <label>Password</label>
-                <input type="password" required 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}/>
-                <button className="button cta" type="submit">Log in</button>
-                <span>Don't have an account? <Link to="/sign-up">Click here</Link> to sign up</span>
-            </form>
-            <ToastContainer />
-        </div>
+        <>
+            <h1 className="welcome">FX HOME</h1>
+            <div className="login">
+                <h1>Login</h1>
+                <form onSubmit={handleSubmit}>
+                    <label>Email Address</label>
+                    <input type="email" required 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)}/>
+                    <label>Password</label>
+                    <input type="password" required 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}/>
+                    <button className="button cta" type="submit">Log in</button>
+                    <span>Don't have an account? <Link to="/sign-up">Click here</Link> to sign up</span>
+                </form>
+                <ToastContainer />
+            </div>
+        </>
     );
 }
  

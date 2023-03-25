@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className="navbar-container">
             <ToastContainer />
             <header className="navbar">
-                <span className="title">FX Home</span>
+                <span className="title"><Link to="/dashboard" className="title">FX Home</Link></span>
                 <ul className="navs">
                     <li><Link to="/dashboard" className="nav-link">Buy FX</Link></li>
                     <li><Link to="/dashboard/requests" className="nav-link">View Requests</Link></li>

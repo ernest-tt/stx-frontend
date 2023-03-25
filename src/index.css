@@ -18,7 +18,7 @@ a {
 
 .login, .signup {
   max-width: 350px;
-  margin: 4rem auto 0;
+  margin: 1rem auto 0;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
@@ -29,6 +29,7 @@ a {
 
 .login h1, .signup h1 {
   margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
 .login form, .signup form, label {
@@ -103,6 +104,14 @@ a {
   cursor: pointer;
 }
 
+.welcome {
+  text-align: center;
+  color: #066fb4;
+  margin-top: 3rem;
+}
+
+/* .nav-link:: */
+
 
 .dashboard {
   display: flex;
@@ -176,6 +185,12 @@ button:hover, select:hover {
   border-radius: 0.4rem;
   border: solid 1px #dcdcdc;
   background-color: #f3f9fd;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px #89d0ff;
+  ;
 }
 
 .card-content {

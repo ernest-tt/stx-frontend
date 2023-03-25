@@ -23,27 +23,31 @@ const SignUp = () => {
             })
     }
 
-    return ( 
-        <div className="signup">
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Full Name</label>
-                <input type="text" required
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}/>
-                <label>Email Address</label>
-                <input type="email" required 
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)}/>
-                <label>Password</label>
-                <input type="password" required 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}/>
-                <button className="button cta" type="submit">Sign Up</button>
-                <span>Have an account? <Link to="/">Click here</Link> to log in</span>
-            </form>
-            <ToastContainer />
-        </div>
+    return (
+        <>
+            <h1 className="welcome">FX HOME</h1>
+            <div className="signup">
+                <h1>Sign Up</h1>
+                <form onSubmit={handleSubmit}>
+                    <label>Full Name</label>
+                    <input type="text" required
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}/>
+                    <label>Email Address</label>
+                    <input type="email" required 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)}/>
+                    <label>Password</label>
+                    <input type="password" required 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}/>
+                    <button className="button cta" type="submit">Sign Up</button>
+                    <span>Have an account? <Link to="/">Click here</Link> to log in</span>
+                </form>
+                <ToastContainer />
+            </div>        
+        </>
+
      );
 }
  
