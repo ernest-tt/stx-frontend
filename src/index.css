@@ -270,15 +270,9 @@ button:hover, select:hover {
 .cancelled strong {
   color: #f52952
 }
-/* .purchase-form {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #b7b7b7;
-}
 
-.purchase-form form {
-  margin: 0 auto;
-  z-index: 5;
-} */
+.not-found {
+  width: 100%;
+  text-align: center;
+  margin: 5rem auto;
+}

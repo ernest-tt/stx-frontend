@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import SignUp from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import authService from "./services/AuthService";
+import NotFound from "./pages/NotFound";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  // const isAuthenticated = authService.isAuthenticated(); // Replace with actual authentication check
+  const isAuthenticated = authService.isAuthenticated; // Replace with actual authentication check
   return (
     <Router>
       <div className="App">
@@ -14,9 +15,12 @@ function App() {
           <Route exact path="/sign-up">
             <SignUp />
           </Route>
-          <PrivateRoute path ="/dashboard" component={Dashboard} isAuthenticated={authService.isAuthenticated()} />
-          <Route exact path='/'>
+          <PrivateRoute path ="/dashboard" component={Dashboard} isAuthenticated={isAuthenticated} />
+          <Route exact path="/">
             <LoginPage />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </div>
@@ -25,11 +29,11 @@ function App() {
   );
 }
 
-function PrivateRoute({ component: Component, isAuthenticated, ...rest }) {
+function PrivateRoute({ component: Component, isAuthenticated }) {
   return (
-    <Route {...rest} render={(props) => (
-      isAuthenticated ? <Component {...props} />
-    : <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+    <Route render={() => (
+      isAuthenticated ? <Component />
+    : <Redirect to='/'/>
     )} />
   );
 }

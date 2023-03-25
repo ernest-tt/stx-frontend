@@ -20,9 +20,10 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         authService.login({email, password})
-            .then(() => {
-                if(authService.isAuthenticated()) {
-                    history.push('/dashboard')
+            .then((res) => {
+                console.log(res)
+                if(res) {
+                    history.push('/dashboard/')
                 }
             })
             .catch((err)  => {

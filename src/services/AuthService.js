@@ -13,8 +13,8 @@ const signUp = (body) => {
 const login = (body) => {
     return axios.post('http://localhost:5000/trader/login', {...body}, {withCredentials: true})
         .then((res) => {
-            localStorage.setItem('auth', JSON.stringify(res))
-            return res
+            localStorage.setItem('auth', "auth")
+            return isAuthenticated()
         })
         .catch((err) => {
             throw err
@@ -34,6 +34,7 @@ const logout = () => {
 const isAuthenticated = () => {
     return localStorage.getItem('auth') ? true : false
 }
+
 
 const authService = {
     login,

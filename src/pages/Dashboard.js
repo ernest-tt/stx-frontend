@@ -4,6 +4,7 @@ import { Switch, Route} from "react-router-dom";
 import Provider from "../components/Provider";
 import Requests from "../components/Requests";
 import Accounts from "../components/Accounts";
+import NotFound from "./NotFound";
 
 const Dashboard = () => {
     return ( 
@@ -15,10 +16,13 @@ const Dashboard = () => {
                         <Provider />
                     </Route>
                     <Route path="/dashboard/requests">
-                        <Requests path="/dashboard/accounts"/>
+                        <Requests />
                     </Route>
-                    <Route>
+                    <Route path="/dashboard/accounts">
                         <Accounts />
+                    </Route>
+                    <Route path="*">
+                        <NotFound />
                     </Route>
                 </Switch>
             </div>
